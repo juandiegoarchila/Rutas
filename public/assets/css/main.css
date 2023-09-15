@@ -7,7 +7,6 @@
     font-family: 'Poppins', 'sans-serif'; 
 }
 
-
 :root {
     --clr: #f8f3f9;
     --blue: #287bff;
@@ -15,8 +14,6 @@
     --grey: #f5f5f5;
     --black1: #222;
     --black2: #999;
-    
-    
 }
 
 body {
@@ -46,37 +43,49 @@ body {
 
 .sidebar ul li {
     position: relative;
+    width: 100%;
     list-style: none;
-}
-
-.sidebar ul li.active {
-    background-color: var(--clr);
     border-top-left-radius: 50px;
     border-bottom-left-radius: 50px;
 }
 
-.sidebar ul li.active::before {
-    content: "";
-    position: absolute;
-    top: -20px;
-    right: 0;
-    width: 20px;
-    height: 20px;
-    border-bottom-right-radius: 20px;
-    box-shadow: 5px 5px 0 5px var(--clr);
-    background: transparent;
+.sidebar ul li:nth-child(1){
+    margin-bottom: 4px;
+    pointer-events:none;
 }
 
-.sidebar ul li.active::after {
-    content: "";
+.sidebar ul li:hover,
+.sidebar ul li.hovered{
+    background: var(--clr);
+}
+
+/* curva */
+.sidebar ul li:hover a::before,
+.sidebar ul li.hovered a::before{
+    content: '';
     position: absolute;
-    bottom: -20px;
     right: 0;
-    width: 20px;
-    height: 20px;
-    border-top-right-radius: 20px;
-    box-shadow: 5px -5px 0 5px var(--clr);
+    top: -50px;
+    width: 50px;
+    height: 50px;
     background: transparent;
+    border-radius: 50%;
+    box-shadow: 35px 35px 0 10px var(--clr);
+    pointer-events: none;
+}
+
+.sidebar ul li:hover a::after,
+.sidebar ul li.hovered a::after{
+    content: '';
+    position: absolute;
+    right: 0;
+    bottom: -50px;
+    width: 50px;
+    height: 50px;
+    background: transparent;
+    border-radius: 50%;
+    box-shadow: 35px -35px 0 10px var(--clr);
+    pointer-events: none;
 }
 
 .sidebar ul li.logo {
@@ -92,6 +101,33 @@ body {
     font-size: 1.2em;
     font-weight: 500;
     color: var(--clr);
+}
+
+.sidebar ul li a {
+    position: relative;
+    display: flex;
+    white-space: nowrap;
+    text-decoration: none;
+}
+
+.sidebar ul li:hover a .icon,
+.sidebar ul li:hover a .text {
+    color: var(--bg);
+}
+
+
+.sidebar ul li.logo {
+    margin-bottom: 50px;
+}
+
+.sidebar ul li.logo .icon {
+    font-size: 2em;
+    color: var(--clr);
+}
+
+.sidebar ul li.logo .text {
+    font-size: 1.2em;
+    font-weight: 500;
 }
 
 .sidebar ul li a {
@@ -127,40 +163,22 @@ body {
     text-transform: 0.05em;
     transition: 0.5s;
     margin-top: 4px;
-    
 }
 
-.sidebar ul li.active a .icon {
-    color: #fff;
-}
-
-.sidebar ul li.active a .text {
-    color: var(--bg);
-}
-
-.sidebar ul li:hover a .icon,
-.sidebar ul li:hover a .text {
-    
-    color: var(--bg);
-}
 
 .sidebar ul li.active a .icon::before {
     content: "";
     position: absolute;
     inset: 5px;
     width: 50px;
-    background: var(--bg);
     border-radius: 50%;
     transition: 0.5s;
 }
 
-.sidebar ul li:hover.active a .icon::before {
-    background: #fff;
-}
 
 .botoon {
     position: absolute;
-    bottom: 0;
+    bottom: 50px;
     width: 100%;    
 }
 
